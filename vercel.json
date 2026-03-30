@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "plugins": [
-    { "src": "vercel-php", "config": { "force_node_version": "20.x" } }
-  ],
   "functions": {
     "api/*.php": {
       "runtime": "vercel-php@0.7.2"
@@ -12,6 +9,10 @@
     {
       "src": "/build/(.*)",
       "dest": "/public/build/$1"
+    },
+    {
+      "src": "/.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|webp|json|xml|txt|pdf)$",
+      "dest": "/public/$0"
     },
     {
       "src": "/(.*)",
